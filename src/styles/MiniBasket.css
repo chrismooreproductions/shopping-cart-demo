@@ -1,0 +1,7 @@
+.mini-basket {
+  width: 100%;
+}
+
+.mini-basket .list-group-item {
+  display: flex;
+}

@@ -1,0 +1,10 @@
+.product--image-wrapper {
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product--image-helper {
+  width: 100%;
+}
