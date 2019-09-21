@@ -1,38 +1,49 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+
 import ICommonProps from '../types/Common';
-import Pages from '../constants/index';
-import IBasket from '../types/Basket';
 import IProduct from '../types/Product';
-import strToUpper from '../utils/strToUpper';
 
-interface BasketProps extends ICommonProps {
-  basket: IBasket
-}
+import { BasketContext } from '../context/basket/BasketProvider';
+import CurrencyContext from '../context/currency/currencyContext';
 
-const renderMiniBasket = (products: IProduct[]) => {
-  return products.map(product => {
-    if (product.qty > 0) {
+import BasketLineItemComponent, { IBasketLineItemComponentProps } from '../components/BasketLineItemComponent';
+
+interface IBasketProps extends ICommonProps {}
+
+export default class Basket extends React.Component<IBasketProps> {
+  renderBasket = (products: IProduct[], currency: any): ReactElement<IBasketLineItemComponentProps>[] => {
+    const selectedCurrency = currency.selectedCurrency;
+    const exchangeRate = currency.currencies.rates[selectedCurrency];
+    const symbol = currency.symbols[selectedCurrency]
+    
+    return products.map(product => {
       return (
-        <li className="list-group-item">
-          <span className="product-name">{strToUpper(product.name)}</span>
-          <span className="ml-auto">Qty: {product.qty}</span>
-        </li>
+        <BasketLineItemComponent
+          product={product}
+          symbol={symbol}
+          exchangeRate={exchangeRate}
+        />
       )
-    }
-  })
-}
+    })
+  }
 
-export default class Basket extends React.Component<BasketProps, {}> {
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <div className="main-content-wrapper">
-            <h2>Your basket</h2>
-            {renderMiniBasket(this.props.basket.products)}
-          </div>
-        </div>
-      </div>
+      <BasketContext.Consumer>{basket => (
+        <CurrencyContext.Consumer>{currency => {
+          return (
+            <div className="row">
+              <div className="col-md-12">
+                <div className="main-content-wrapper">
+                  <h3 className="font-weight-bold">Your basket</h3><span className="ml-auto">{basket.products.length > 0 ? '' : 'Empty'}</span>
+                  {this.renderBasket(basket.products, currency.state)}
+                </div>
+              </div>
+            </div>
+          )
+        }}</CurrencyContext.Consumer>
+      )}
+      </BasketContext.Consumer>
     )
   }
 }
