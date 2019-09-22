@@ -1,39 +1,39 @@
-import ICurrencies from '../constants/currencies';
+import ICurrencies from "../constants/currencies";
 
 export interface ISymbols {
-  "CAD": { symbol: '' },
-  "HKD": { symbol: '' },
-  "ISK": { symbol: '' },
-  "PHP": { symbol: '' },
-  "DKK": { symbol: '' },
-  "HUF": { symbol: '' },
-  "CZK": { symbol: '' },
-  "GBP": { symbol: '' },
-  "RON": { symbol: '' },
-  "SEK": { symbol: '' },
-  "IDR": { symbol: '' },
-  "INR": { symbol: '' },
-  "BRL": { symbol: '' },
-  "RUB": { symbol: '' },
-  "HRK": { symbol: '' },
-  "JPY": { symbol: '' },
-  "THB": { symbol: '' },
-  "CHF": { symbol: '' },
-  "EUR": { symbol: '' },
-  "MYR": { symbol: '' },
-  "BGN": { symbol: '' },
-  "TRY": { symbol: '' },
-  "CNY": { symbol: '' },
-  "NOK": { symbol: '' },
-  "NZD": { symbol: '' },
-  "ZAR": { symbol: '' },
-  "USD": { symbol: '' },
-  "MXN": { symbol: '' },
-  "SGD": { symbol: '' },
-  "AUD": { symbol: '' },
-  "ILS": { symbol: '' },
-  "KRW": { symbol: '' },
-  "PLN": { symbol: '' }
+  "CAD": { symbol: "", name: "", symbol_native: "" };
+  "HKD": { symbol: "", name: "", symbol_native: "" };
+  "ISK": { symbol: "", name: "", symbol_native: "" };
+  "PHP": { symbol: "", name: "", symbol_native: "" };
+  "DKK": { symbol: "", name: "", symbol_native: "" };
+  "HUF": { symbol: "", name: "", symbol_native: "" };
+  "CZK": { symbol: "", name: "", symbol_native: "" };
+  "GBP": { symbol: "", name: "", symbol_native: "" };
+  "RON": { symbol: "", name: "", symbol_native: "" };
+  "SEK": { symbol: "", name: "", symbol_native: "" };
+  "IDR": { symbol: "", name: "", symbol_native: "" };
+  "INR": { symbol: "", name: "", symbol_native: "" };
+  "BRL": { symbol: "", name: "", symbol_native: "" };
+  "RUB": { symbol: "", name: "", symbol_native: "" };
+  "HRK": { symbol: "", name: "", symbol_native: "" };
+  "JPY": { symbol: "", name: "", symbol_native: "" };
+  "THB": { symbol: "", name: "", symbol_native: "" };
+  "CHF": { symbol: "", name: "", symbol_native: "" };
+  "EUR": { symbol: "", name: "", symbol_native: "" };
+  "MYR": { symbol: "", name: "", symbol_native: "" };
+  "BGN": { symbol: "", name: "", symbol_native: "" };
+  "TRY": { symbol: "", name: "", symbol_native: "" };
+  "CNY": { symbol: "", name: "", symbol_native: "" };
+  "NOK": { symbol: "", name: "", symbol_native: "" };
+  "NZD": { symbol: "", name: "", symbol_native: "" };
+  "ZAR": { symbol: "", name: "", symbol_native: "" };
+  "USD": { symbol: "", name: "", symbol_native: "" };
+  "MXN": { symbol: "", name: "", symbol_native: "" };
+  "SGD": { symbol: "", name: "", symbol_native: "" };
+  "AUD": { symbol: "", name: "", symbol_native: "" };
+  "ILS": { symbol: "", name: "", symbol_native: "" };
+  "KRW": { symbol: "", name: "", symbol_native: "" };
+  "PLN": { symbol: "", name: "", symbol_native: "" };
 }
 
 export interface IExchangeRates {
@@ -70,7 +70,7 @@ export interface IExchangeRates {
     "AUD": number,
     "ILS": number,
     "KRW": number,
-    "PLN": number
+    "PLN": number,
   };
   base: string;
   date: string;

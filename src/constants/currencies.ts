@@ -31,7 +31,7 @@ enum ICurrencies {
   AUD = "AUD",
   ILS = "ILS",
   KRW = "KRW",
-  PLN = "PLN"
+  PLN = "PLN",
 }
 
 export default ICurrencies;

@@ -1,7 +1,7 @@
-import IProduct from './Product';
+import IProduct from "./Product";
 
 interface IBasket {
-  products: IProduct[]
+  products: IProduct[];
 }
 
 export default IBasket;

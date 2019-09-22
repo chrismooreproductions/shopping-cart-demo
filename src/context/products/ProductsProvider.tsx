@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import products from '../../data/products';
-import ProductsContext from './productsContext';
+import products from "../../data/products";
+import ProductsContext from "./productsContext";
 
 export class Products extends React.Component<{}, {}> {
-  render() {
+  public render() {
     return (
       <ProductsContext.Provider value={{
-        products: products
+        products,
       }}>
         {this.props.children}
       </ProductsContext.Provider>
-    )
+    );
   }
 }

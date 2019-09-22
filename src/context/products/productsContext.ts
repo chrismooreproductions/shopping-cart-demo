@@ -1,12 +1,13 @@
-import React from 'react';
-import products from '../../data/products';
+import React from "react";
+import products from "../../data/products";
+import IProduct from "../../types/Product";
 
-interface ProductsContext {
-
+interface IProductsContext {
+  products: IProduct[];
 }
 
-const ProductsContext = React.createContext({
-  products: products
+const ProductsContext = React.createContext<IProductsContext>({
+  products,
 });
 
 export default ProductsContext;

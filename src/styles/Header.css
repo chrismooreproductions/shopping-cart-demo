@@ -1,0 +1,13 @@
+nav {
+  height: 70px;
+}
+
+.nav--store-functions {
+  height: 38px;
+}
+
+.nav--currency-select {
+  height: 100%;
+  vertical-align: middle;
+  margin-right: 8px;
+}

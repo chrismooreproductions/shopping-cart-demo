@@ -1,40 +1,50 @@
-import React from 'react';
-import Pages from '../constants/index';
+import React from "react";
+import Pages from "../constants/index";
+import "../styles/Header.css";
 
 import { faShoppingBasket, faStore } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CurrencyContext from '../context/currency/currencyContext';
+import CurrencyContext from "../context/currency/currencyContext";
 
-import ICurrencies from '../constants/currencies';
+import ICurrencies from "../constants/currencies";
 
-interface HeaderProps {
+interface IHeaderProps {
   page: Pages;
   setActivePage: (page: Pages) => void;
 }
 
-export default class Header extends React.Component<HeaderProps, {}> {
-  render() {
+export default class Header extends React.Component<IHeaderProps, {}> {
+  public render() {
     return (
-      <CurrencyContext.Consumer>{currency => (
+      <CurrencyContext.Consumer>{(currency) => (
         <nav className="navbar navbar-light bg-light justify-content-between mb-4">
           <a href="localhost:3000" className="navbar-brand">Chris Moore's Store</a>
-            <div>
-              <select value={currency.state.selectedCurrency} onChange={(event) => currency.selectCurrency(event)}>
-                {Object.keys(ICurrencies).map(symbol => {
-                  return <option value={symbol} key={symbol}>{symbol}</option>
+            <div className="nav--store-functions">
+              <select className="nav--currency-select"
+                value={currency.state.selectedCurrency}
+                onChange={(event) => currency.selectCurrency(event)}>
+                {Object.keys(ICurrencies).map((symbol) => {
+                  const thisCurrency = symbol as keyof typeof ICurrencies;
+                  return <option value={symbol} key={symbol}>
+                      {symbol}: {currency.state.symbols[thisCurrency].name}
+                    </option>;
                 })}
               </select>
-              <button 
+              <button
                 className="btn btn-outline-success my-2 my-sm-0"
                 type="submit"
-                onClick={() => this.props.setActivePage(this.props.page === Pages.Products ? Pages.Basket : Pages.Products)}
+                onClick={() => this.props.setActivePage(this.props.page === Pages.Products ?
+                  Pages.Basket
+                  : Pages.Products)}
               >
-                {this.props.page === Pages.Products ? <FontAwesomeIcon icon={faShoppingBasket} /> : <FontAwesomeIcon icon={faStore} />}
+                {this.props.page === Pages.Products ?
+                  <FontAwesomeIcon icon={faShoppingBasket} />
+                  : <FontAwesomeIcon icon={faStore} />}
               </button>
             </div>
         </nav>
       )}
       </CurrencyContext.Consumer>
-    )
+    );
   }
 }

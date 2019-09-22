@@ -1,11 +1,11 @@
-import React from 'react';
-import CurrencyContext from './currencyContext';
+import React from "react";
+import CurrencyContext from "./currencyContext";
 
-import defaultSymbols from '../../data/defaultSymbols';
-import defaultRates from '../../data/defaultRates';
+import defaultRates from "../../data/defaultRates";
+import defaultSymbols from "../../data/defaultSymbols";
 
-import { IExchangeRates, ISymbols } from '../../types/Currency';
-import ICurrencies from '../../constants/currencies';
+import ICurrencies from "../../constants/currencies";
+import { IExchangeRates, ISymbols } from "../../types/Currency";
 
 export interface ICurrencyState {
   currencies: IExchangeRates;
@@ -14,57 +14,57 @@ export interface ICurrencyState {
 }
 
 export class Currency extends React.Component<{}, ICurrencyState> {
-  state = {
+  public state = {
     currencies: {
+      base: "",
+      date: "",
       rates: defaultRates,
-      base: '',
-      date: ''
     },
-    symbols: defaultSymbols,
     selectedCurrency: ICurrencies.GBP,
-  }
+    symbols: defaultSymbols,
+  };
 
-  fetchData<T>(url: string): Promise<T> {
+  public fetchData<T>(url: string): Promise<T> {
     return fetch(url)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error(response.statusText);
         }
         return response.json();
-      })
+      });
   }
 
-  componentDidMount() {
-    this.fetchData<any>('https://api.exchangeratesapi.io/latest?base=GBP')
-      .then(data => {
+  public componentDidMount() {
+    this.fetchData<any>("https://api.exchangeratesapi.io/latest?base=GBP")
+      .then((data) => {
         this.setState({
-          currencies: data
-        })
-      })
-    this.fetchData<any>('https://gist.githubusercontent.com/Fluidbyte/2973986/raw/b0d1722b04b0a737aade2ce6e055263625a0b435/Common-Currency.json')
-      .then(data => {
+          currencies: data,
+        });
+      });
+    this.fetchData<any>("https://gist.githubusercontent.com/Fluidbyte/2973986/raw/b0d1722b04b0a737aade2ce6e055263625a0b435/Common-Currency.json")
+      .then((data) => {
         this.setState({
-          symbols: data
-        })
-      })
+          symbols: data,
+        });
+      });
   }
 
-  selectCurrency(event: React.ChangeEvent<HTMLSelectElement>) {
-    const newCurrency = event.currentTarget.value as keyof typeof ICurrencies
+  public selectCurrency(event: React.ChangeEvent<HTMLSelectElement>) {
+    const newCurrency = event.currentTarget.value as keyof typeof ICurrencies;
     this.setState({
-      selectedCurrency: ICurrencies[newCurrency]
-    })
+      selectedCurrency: ICurrencies[newCurrency],
+    });
   }
 
-  render() {
+  public render() {
     return (
       <CurrencyContext.Provider value={{
+        selectCurrency: (currency: React.ChangeEvent<HTMLSelectElement>) => this.selectCurrency(currency),
         state: this.state,
-        symbol: this.state.symbols[this.state.selectedCurrency].symbol,
-        selectCurrency: (currency: React.ChangeEvent<HTMLSelectElement>) => this.selectCurrency(currency)
+        symbol: this.state.symbols[this.state.selectedCurrency].symbol_native,
       }}>
         {this.props.children}
       </CurrencyContext.Provider>
-    )
+    );
   }
 }

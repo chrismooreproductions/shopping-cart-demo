@@ -1,6 +1,6 @@
 enum Pages {
   Products = "Products",
-  Basket = "Basket"
+  Basket = "Basket",
 }
 
 export default Pages;

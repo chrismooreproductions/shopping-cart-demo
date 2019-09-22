@@ -1,32 +1,33 @@
-import React from 'react';
+import React from "react";
 
-import { IExchangeRates, ISymbols } from '../../types/Currency';
-import ICurrencies from '../../constants/currencies';
-import defaultRates from '../../data/defaultRates';
-import defaultSymbols from '../../data/defaultSymbols';
+import ICurrencies from "../../constants/currencies";
+import defaultRates from "../../data/defaultRates";
+import defaultSymbols from "../../data/defaultSymbols";
+import { IExchangeRates, ISymbols } from "../../types/Currency";
 
-interface CurrencyContext {
+interface ICurrencyContext {
   state: {
     currencies: IExchangeRates;
     selectedCurrency: ICurrencies;
     symbols: ISymbols;
-  },
+  };
   symbol: string;
   selectCurrency: (currency: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const CurrencyContext = React.createContext<CurrencyContext>({
+const CurrencyContext = React.createContext<ICurrencyContext>({
+  selectCurrency: (currency: React.ChangeEvent<HTMLSelectElement>) =>
+    new Error("No selectCurrency() method implemented"),
   state: {
     currencies: {
+      base: "",
+      date: "",
       rates: defaultRates,
-      base: '',
-      date: ''
     },
     selectedCurrency: ICurrencies.GBP,
-    symbols: defaultSymbols
+    symbols: defaultSymbols,
   },
-  symbol: '£',
-  selectCurrency: (currency: React.ChangeEvent<HTMLSelectElement>) => { return new Error('No selectCurrency() method implemented') }
+  symbol: "£",
 });
 
 export default CurrencyContext;
