@@ -1,13 +1,13 @@
 import React from "react";
 import products from "../../data/products";
-import IProduct from "../../types/Product";
+import IProduct from "../../types/IProduct";
 import { BasketContext } from "./basketContext";
 
 export interface IBasketState {
   products: IProduct[];
 }
 
-export class Basket extends React.Component<{}, IBasketState> {
+export class BasketProvider extends React.Component<{}, IBasketState> {
   public state: Readonly<IBasketState> = {
     products: [],
   };
@@ -15,6 +15,7 @@ export class Basket extends React.Component<{}, IBasketState> {
   public render() {
     // Calculate the basket total...
     let subTotalGBP = 0;
+
     if (this.state.products.length > 0) {
       this.state.products.forEach((product) => {
         subTotalGBP += (product.qty * product.price);
@@ -25,7 +26,6 @@ export class Basket extends React.Component<{}, IBasketState> {
       <BasketContext.Provider value={{
         addProductToBasket: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           this.addProductToBasket(event),
-        basketTotalGBP: subTotalGBP,
         products: this.state.products,
         removeProductFromBasket: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           this.removeProductFromBasket(event),

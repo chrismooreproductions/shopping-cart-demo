@@ -1,4 +1,4 @@
-import {ISymbols} from "../types/Currency";
+import {ISymbols} from "../types/ICurrency";
 
 const defaultSymbols: ISymbols = {
   AUD: { symbol: "", name: "", symbol_native: "" },

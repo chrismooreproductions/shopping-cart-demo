@@ -3,7 +3,7 @@ import React from "react";
 import products from "../../data/products";
 import ProductsContext from "./productsContext";
 
-export class Products extends React.Component<{}, {}> {
+export class ProductsProvider extends React.Component<{}, {}> {
   public render() {
     return (
       <ProductsContext.Provider value={{

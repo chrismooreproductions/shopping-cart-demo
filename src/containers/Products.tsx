@@ -1,6 +1,6 @@
 import React from "react";
-import MiniBasketComponent from "../components/MiniBasketComponent";
-import ProductComponent from "../components/ProductComponent";
+import MiniBasket from "../components/MiniBasket";
+import Product from "../components/Product";
 import Pages from "../constants/index";
 import ProductsContext from "../context/products/productsContext";
 import "../styles/App.css";
@@ -21,7 +21,7 @@ export default class Products extends React.Component<IProductsProps, {}> {
                 <div className="row">
                   { products.products.map((product) => {
                       return (
-                        <ProductComponent
+                        <Product
                           product={product}
                           key={products.products.indexOf(product)}
                         />
@@ -32,7 +32,7 @@ export default class Products extends React.Component<IProductsProps, {}> {
               </div>
             </div>
             <div className="col-md-3">
-              <MiniBasketComponent />
+              <MiniBasket />
             </div>
           </div>
       )}</ProductsContext.Consumer>

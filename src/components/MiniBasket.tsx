@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/MiniBasket.css";
 
-import IProduct from "../types/Product";
+import IProduct from "../types/IProduct";
 import strToUpper from "../utils/strToUpper";
 
 import { BasketContext } from "../context/basket/basketContext";
@@ -20,7 +20,7 @@ export const renderMiniBasket = (products: IProduct[]) => {
   });
 };
 
-const MiniBasketComponent: React.FC<{}> = () => {
+const MiniBasket: React.FC<{}> = () => {
   return (
     <BasketContext.Consumer>
       {(basket) => (
@@ -35,4 +35,4 @@ const MiniBasketComponent: React.FC<{}> = () => {
   );
 };
 
-export default MiniBasketComponent;
+export default MiniBasket;

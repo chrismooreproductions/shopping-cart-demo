@@ -1,11 +1,11 @@
 import React from "react";
-import CurrencyContext from "./currencyContext";
+import { CurrencyContext } from "./currencyContext";
 
 import defaultRates from "../../data/defaultRates";
 import defaultSymbols from "../../data/defaultSymbols";
 
 import ICurrencies from "../../constants/currencies";
-import { IExchangeRates, ISymbols } from "../../types/Currency";
+import { IExchangeRates, ISymbols } from "../../types/ICurrency";
 
 export interface ICurrencyState {
   currencies: IExchangeRates;
@@ -13,7 +13,7 @@ export interface ICurrencyState {
   selectedCurrency: ICurrencies;
 }
 
-export class Currency extends React.Component<{}, ICurrencyState> {
+export class CurrencyProvider extends React.Component<{}, ICurrencyState> {
   public state = {
     currencies: {
       base: "",

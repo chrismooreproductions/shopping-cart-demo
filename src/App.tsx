@@ -4,12 +4,12 @@ import React, { ReactElement } from "react";
 // Import types and constants...
 import ICurrency from "./constants/currencies";
 import Pages from "./constants/index";
-import IBasket from "./types/Basket";
+import IBasket from "./types/IBasket";
 
 // Import Context Providers here...
-import { Basket } from "./context/basket/BasketProvider";
-import { Currency } from "./context/currency/CurrencyProvider";
-import { Products } from "./context/products/ProductsProvider";
+import { BasketProvider } from "./context/basket/BasketProvider";
+import { CurrencyProvider } from "./context/currency/CurrencyProvider";
+import { ProductsProvider } from "./context/products/ProductsProvider";
 
 // Import Containers...
 import BasketContainer from "./containers/Basket";
@@ -59,9 +59,9 @@ class App extends React.Component<{}, IAppState> {
 
   public render() {
     return (
-      <Currency>
-        <Products>
-          <Basket>
+      <CurrencyProvider>
+        <ProductsProvider>
+          <BasketProvider>
             <div className="container">
               <Header
                 page={this.state.page}
@@ -69,9 +69,9 @@ class App extends React.Component<{}, IAppState> {
               />
               {this.renderActivePage()}
             </div>
-          </Basket>
-        </Products>
-      </Currency>
+          </BasketProvider>
+        </ProductsProvider>
+      </CurrencyProvider>
     );
   }
 }

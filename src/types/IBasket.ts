@@ -1,4 +1,4 @@
-import IProduct from "./Product";
+import IProduct from "./IProduct";
 
 interface IBasket {
   products: IProduct[];

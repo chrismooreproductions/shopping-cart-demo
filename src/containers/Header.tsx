@@ -1,10 +1,9 @@
-import React from "react";
-import Pages from "../constants/index";
-import "../styles/Header.css";
-
 import { faShoppingBasket, faStore } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CurrencyContext from "../context/currency/currencyContext";
+import React from "react";
+import Pages from "../constants/index";
+import { CurrencyContext } from "../context/currency/currencyContext";
+import "../styles/Header.css";
 
 import ICurrencies from "../constants/currencies";
 
