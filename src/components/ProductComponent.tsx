@@ -40,8 +40,7 @@ const ProductComponent: React.FC<IProductProps> = (props) => {
             <div className="card-body">
               <h5 className="card-title">{strToUpper(props.product.name)}</h5>
               <p className="card-text">
-                {currency.symbol}
-                {exchangeRatePrice(
+                {currency.symbol} {exchangeRatePrice(
                   props.product.price,
                   currency.state.currencies.rates[currency.state.selectedCurrency])
                 }
