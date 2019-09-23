@@ -1,6 +1,5 @@
 import React from "react";
 import { IBasketContext } from "../context/basket/basketContext";
-import { ISymbols } from "../types/ICurrency";
 import IProduct from "../types/IProduct";
 import { integerToUnitPrice } from "../utils/financial";
 import strToUpper from "../utils/strToUpper";

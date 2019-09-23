@@ -13,15 +13,6 @@ export class BasketProvider extends React.Component<{}, IBasketState> {
   };
 
   public render() {
-    // Calculate the basket total...
-    let subTotalGBP = 0;
-
-    if (this.state.products.length > 0) {
-      this.state.products.forEach((product) => {
-        subTotalGBP += (product.qty * product.price);
-      });
-    }
-
     return (
       <BasketContext.Provider value={{
         addProductToBasket: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
