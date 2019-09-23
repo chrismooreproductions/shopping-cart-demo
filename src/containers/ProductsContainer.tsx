@@ -1,7 +1,7 @@
 import React from "react";
 import MiniBasket from "../components/MiniBasket";
 import Product from "../components/Product";
-import Pages from "../constants/index";
+import Pages from "../constants/pages";
 import ProductsContext from "../context/products/productsContext";
 import "../styles/App.css";
 import "../styles/Products.css";

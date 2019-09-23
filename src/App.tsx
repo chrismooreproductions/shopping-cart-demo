@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React, { ReactElement } from "react";
 
 // Import types and constants...
-import Pages from "./constants/index";
+import Pages from "./constants/pages";
 
 // Import Context Providers here...
 import { BasketProvider } from "./context/basket/BasketProvider";

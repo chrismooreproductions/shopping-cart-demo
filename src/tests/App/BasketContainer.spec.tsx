@@ -1,4 +1,4 @@
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import React from "react";
 import Basket from "../../containers/BasketContainer";
 import { BasketContext, IBasketContext } from "../../context/basket/basketContext";

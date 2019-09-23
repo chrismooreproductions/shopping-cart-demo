@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import React from "react";
-import Pages from "../../constants";
 import ICurrencies from "../../constants/currencies";
+import Pages from "../../constants/pages";
 import Header from "../../containers/HeaderContainer";
 import { CurrencyContext, ICurrencyContext } from "../../context/currency/currencyContext";
 import defaultRates from "../../data/defaultRates";

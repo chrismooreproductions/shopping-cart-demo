@@ -1,7 +1,7 @@
 import { faShoppingBasket, faStore } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Pages from "../constants/index";
+import Pages from "../constants/pages";
 import { CurrencyContext } from "../context/currency/currencyContext";
 import "../styles/Header.css";
 

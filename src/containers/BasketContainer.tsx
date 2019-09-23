@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import BasketLineItem, { IBasketLineItemProps } from "../components/BasketLineItem";
 import BasketTotal from "../components/BasketTotal";
-import Pages from "../constants/index";
+import Pages from "../constants/pages";
 import { BasketContext, IBasketContext } from "../context/basket/basketContext";
 import { CurrencyContext, ICurrencyContext } from "../context/currency/currencyContext";
 import "../styles/Basket.css";
