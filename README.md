@@ -1,6 +1,6 @@
 ## Readme
 
-This is a shopping page application built on React v16.9 in Typescript v3.6.3 compiling down to Javascript es5. 
+This is a shopping page application built on React v16.9 in Typescript v3.6.3 compiling down to Javascript es5 using node 10.15.0. 
 
 The project was scaffolded using create-react-app and for tests it uses Jest as the test runner and Enzyme for helpers. 
 
