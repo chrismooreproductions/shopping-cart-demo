@@ -1,8 +1,8 @@
 import { mount } from "enzyme";
 import React from "react";
-import Products from "../containers/ProductsContainer";
-import ProductsContext from "../context/products/productsContext";
-import { testProducts } from "./data/products";
+import Products from "../../containers/ProductsContainer";
+import ProductsContext from "../../context/products/productsContext";
+import { testProducts } from "../data/products";
 
 it("renders a Product container, 4 Product components and a MiniBasket component", () => {
   const wrapper = mount(<Products setActivePage={jest.fn()} />);

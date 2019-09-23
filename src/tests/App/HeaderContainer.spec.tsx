@@ -1,11 +1,11 @@
 import { mount } from "enzyme";
 import React from "react";
-import Pages from "../constants";
-import ICurrencies from "../constants/currencies";
-import Header from "../containers/HeaderContainer";
-import { CurrencyContext, ICurrencyContext } from "../context/currency/currencyContext";
-import defaultRates from "../data/defaultRates";
-import defaultSymbols from "../data/defaultSymbols";
+import Pages from "../../constants";
+import ICurrencies from "../../constants/currencies";
+import Header from "../../containers/HeaderContainer";
+import { CurrencyContext, ICurrencyContext } from "../../context/currency/currencyContext";
+import defaultRates from "../../data/defaultRates";
+import defaultSymbols from "../../data/defaultSymbols";
 
 const testCurrency: ICurrencyContext = {
   selectCurrency: jest.fn(),

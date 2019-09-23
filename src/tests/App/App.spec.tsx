@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
-import App from "../App";
+import App from "../../App";
 
 it("returns one header and one full products view", () => {
   const wrapper = shallow(<App />);

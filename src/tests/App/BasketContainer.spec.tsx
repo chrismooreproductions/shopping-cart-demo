@@ -1,10 +1,10 @@
 import { mount, shallow } from "enzyme";
 import React from "react";
-import Basket from "../containers/BasketContainer";
-import { BasketContext } from "../context/basket/basketContext";
-import { CurrencyContext } from "../context/currency/currencyContext";
-import { testBasketOneItem, testBasketTwoItems } from "./data/basket";
-import { testCurrencyGBP, testCurrencyUSD } from "./data/currency";
+import Basket from "../../containers/BasketContainer";
+import { BasketContext, IBasketContext } from "../../context/basket/basketContext";
+import { CurrencyContext, ICurrencyContext } from "../../context/currency/currencyContext";
+import { testBasketOneItem, testBasketTwoItems } from "../data/basket";
+import { testCurrencyGBP, testCurrencyUSD } from "../data/currency";
 
 it("renders a basket page with an empty basket", () => {
   const wrapper = mount(<Basket setActivePage={jest.fn()} />);
@@ -13,15 +13,18 @@ it("renders a basket page with an empty basket", () => {
   expect(wrapper.find("Empty")).toBeTruthy();
 });
 
-it("renders a basket page with one pot of trifle in it at subtotal and price of £0.95 in GBP", () => {
-  const tree = (
-    <BasketContext.Provider value={testBasketOneItem}>
-      <CurrencyContext.Provider value={testCurrencyGBP}>
+const renderTree = (basket: IBasketContext, currency: ICurrencyContext) => {
+  return (
+    <BasketContext.Provider value={basket}>
+      <CurrencyContext.Provider value={currency}>
         <Basket setActivePage={jest.fn()} />
       </CurrencyContext.Provider>
     </BasketContext.Provider>
   );
-  const wrapper = mount(tree);
+};
+
+it("renders a basket page with one pot of trifle in it at subtotal and price of £0.95 in GBP", () => {
+  const wrapper = mount(renderTree(testBasketOneItem, testCurrencyGBP));
   expect(wrapper.find("BasketLineItem")).toHaveLength(1);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
   expect(wrapper.find("button")).toHaveLength(2);
@@ -32,14 +35,7 @@ it("renders a basket page with one pot of trifle in it at subtotal and price of 
 });
 
 it("renders a basket page with one pot of trifle in it at subtotal and price of $ in USD", () => {
-  const tree = (
-    <BasketContext.Provider value={testBasketOneItem}>
-      <CurrencyContext.Provider value={testCurrencyUSD} >
-        <Basket setActivePage={jest.fn()} />
-      </CurrencyContext.Provider>
-    </BasketContext.Provider>
-  );
-  const wrapper = mount(tree);
+  const wrapper = mount(renderTree(testBasketOneItem, testCurrencyUSD));
   expect(wrapper.find("BasketLineItem")).toHaveLength(1);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
   expect(wrapper.find("button")).toHaveLength(2);
@@ -50,14 +46,7 @@ it("renders a basket page with one pot of trifle in it at subtotal and price of 
 });
 
 it("renders a basket page with 2 items in GBP", () => {
-  const tree = (
-    <BasketContext.Provider value={testBasketTwoItems}>
-      <CurrencyContext.Provider value={testCurrencyGBP} >
-        <Basket setActivePage={jest.fn()} />
-      </CurrencyContext.Provider>
-    </BasketContext.Provider>
-  );
-  const wrapper = mount(tree);
+  const wrapper = mount(renderTree(testBasketTwoItems, testCurrencyGBP));
   expect(wrapper.find("BasketLineItem")).toHaveLength(2);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
   expect(wrapper.find("button")).toHaveLength(4);
@@ -71,14 +60,7 @@ it("renders a basket page with 2 items in GBP", () => {
 });
 
 it("renders a basket page with 2 items in USD", () => {
-  const tree = (
-    <BasketContext.Provider value={testBasketTwoItems}>
-      <CurrencyContext.Provider value={testCurrencyUSD} >
-        <Basket setActivePage={jest.fn()} />
-      </CurrencyContext.Provider>
-    </BasketContext.Provider>
-  );
-  const wrapper = mount(tree);
+  const wrapper = mount(renderTree(testBasketTwoItems, testCurrencyUSD));
   expect(wrapper.find("BasketLineItem")).toHaveLength(2);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
   expect(wrapper.find("button")).toHaveLength(4);
