@@ -1,5 +1,30 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Readme
+
+This is a shopping page application built on React v16.9 in Typescript v3.6.3 compiling down to Javascript es5.
+The project was scaffolded using create-react-app and for tests it uses Jest as the test runner and Enzyme for helpers. 
+
+This app uses the React context API to manage global state, providing the state to the containers and components through
+context providers and consumers. I guess I could have used Redux but I thought doing things this way would reduce boilerplate
+and reduce the complexity of hooking up all the connect components and async actions. I also wanted to have a play around with
+the context API.
+
+I used class based components for the containers because I find it gives a cleaner layout to the code. I have used functional
+components and hooks in previous projects and though they have their benefits I find with Typescript it's easier to adopt a 
+class-snytax based layout. I'm happy to work in pure Javascript, function components and hooks!
+
+One thing I would change would be the routing. The router is built is on a page reference being stored in state which
+when modifies updates the rendered page (in /src/App.ts). I wanted to demo changing page in this style to a friend
+but it's not really appropriate here - using React Router would be a much better idea to enable us to hit the basket at
+https://<base_url>/basket and products at /products, for example.
+
+I have implemented some tests but I would add more for the logic layer (i.e. /src/utils/financial). Though there are some
+higher level tests for rendering of sub totals and totals in the basket there are no tests specific to the financial methods. 
+Obviously this would be essential before committing this code to the master branch.
+
+The design could use some tweeks - I'm open to designers and feedback! :).
+
 ## Available Scripts
 
 In the project directory, you can run:
