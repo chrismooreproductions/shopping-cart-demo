@@ -2,9 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React, { ReactElement } from "react";
 
 // Import types and constants...
-import ICurrency from "./constants/currencies";
 import Pages from "./constants/index";
-import IBasket from "./types/IBasket";
 
 // Import Context Providers here...
 import { BasketProvider } from "./context/basket/BasketProvider";
@@ -12,25 +10,19 @@ import { CurrencyProvider } from "./context/currency/CurrencyProvider";
 import { ProductsProvider } from "./context/products/ProductsProvider";
 
 // Import Containers...
-import BasketContainer from "./containers/Basket";
-import Header from "./containers/Header";
-import ProductsContainer from "./containers/Products";
+import BasketContainer from "./containers/BasketContainer";
+import Header from "./containers/HeaderContainer";
+import ProductsContainer from "./containers/ProductsContainer";
 
 // (and styles!)
 import "./styles/App.css";
 
 interface IAppState {
   page: Pages;
-  basket: IBasket;
-  currentCurrency: ICurrency;
 }
 
 class App extends React.Component<{}, IAppState> {
   public state: IAppState = {
-    basket: {
-      products: [],
-    },
-    currentCurrency: ICurrency.GBP,
     page: Pages.Products,
   };
 

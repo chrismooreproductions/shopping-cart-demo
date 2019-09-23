@@ -8,7 +8,7 @@ const defaultRates = {
   CZK: 0,
   DKK: 0,
   EUR: 0,
-  GBP: 0,
+  GBP: 1,
   HKD: 0,
   HRK: 0,
   HUF: 0,
@@ -30,7 +30,7 @@ const defaultRates = {
   SGD: 0,
   THB: 0,
   TRY: 0,
-  USD: 0,
+  USD: 1.2,
   ZAR: 0,
 };
 

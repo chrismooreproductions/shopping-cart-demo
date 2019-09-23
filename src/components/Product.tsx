@@ -7,9 +7,6 @@ import { integerToUnitPrice } from "../utils/financial";
 import strToUpper from "../utils/strToUpper";
 import RemoveProductButton from "./RemoveProductButton";
 
-// 'require' images folder for dynamic image loading:
-const images = require.context("../images", true);
-
 interface IProductProps {
   product: IProduct;
 }
@@ -23,7 +20,7 @@ const Product: React.FC<IProductProps> = (props) => {
           <div className="card">
             <div className="product--image-wrapper">
               <span className="product--image-helper">
-                <img src={images(`./${product.image}`)} className="card-img-top img-responsive" alt="..." />
+                <img src={require(`../images/${product.image}`)} className="card-img-top img-responsive" alt="..." />
               </span>
             </div>
             <div className="card-body">

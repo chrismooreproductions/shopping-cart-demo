@@ -42,14 +42,13 @@ export default class Basket extends React.Component<IBasketProps> {
   return (
     basket.products.map((product) => {
       return (
-        <React.Fragment>
-          <BasketLineItem
-            product={product}
-            symbol={currency.symbol}
-            exchangeRate={exchangeRate}
-            basket={basket}
-          />
-        </React.Fragment>
+        <BasketLineItem
+          product={product}
+          symbol={currency.symbol}
+          exchangeRate={exchangeRate}
+          basket={basket}
+          key={product.name}
+        />
       );
     }));
   }
