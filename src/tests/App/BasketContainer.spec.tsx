@@ -34,7 +34,7 @@ it("renders a basket page with one pot of trifle in it at subtotal and price of 
   expect(wrapper.text()).toContain("Total: £ 0.95");
 });
 
-it("renders a basket page with one pot of trifle in it at subtotal and price of $ in USD", () => {
+it("renders a basket page with one pot of trifle in it at subtotal and price of $1.14 in USD", () => {
   const wrapper = mount(renderTree(testBasketOneItem, testCurrencyUSD));
   expect(wrapper.find("BasketLineItem")).toHaveLength(1);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
@@ -45,7 +45,7 @@ it("renders a basket page with one pot of trifle in it at subtotal and price of 
   expect(wrapper.text()).toContain("Total: $ 1.14");
 });
 
-it("renders a basket page with 2 items in GBP", () => {
+it("renders a basket page with 2 items in GBP with total £2.40", () => {
   const wrapper = mount(renderTree(testBasketTwoItems, testCurrencyGBP));
   expect(wrapper.find("BasketLineItem")).toHaveLength(2);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
@@ -59,7 +59,7 @@ it("renders a basket page with 2 items in GBP", () => {
   expect(wrapper.text()).toContain("Total: £ 2.40");
 });
 
-it("renders a basket page with 2 items in USD", () => {
+it("renders a basket page with 2 items in USD with total $2.88", () => {
   const wrapper = mount(renderTree(testBasketTwoItems, testCurrencyUSD));
   expect(wrapper.find("BasketLineItem")).toHaveLength(2);
   expect(wrapper.find("BasketTotal")).toHaveLength(1);
