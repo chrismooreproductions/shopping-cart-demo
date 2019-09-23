@@ -2,7 +2,7 @@ import React from "react";
 import MiniBasket from "../components/MiniBasket";
 import Product from "../components/Product";
 import Pages from "../constants/pages";
-import ProductsContext from "../context/products/productsContext";
+import ProductsContext, { IProductsContext } from "../context/products/productsContext";
 import "../styles/App.css";
 import "../styles/Products.css";
 
@@ -13,7 +13,7 @@ interface IProductsProps {
 export default class Products extends React.Component<IProductsProps, {}> {
   public render() {
     return (
-      <ProductsContext.Consumer>{(products) => (
+      <ProductsContext.Consumer>{(products: IProductsContext) => (
           <div className="row">
             <div className="col-md-9">
               <div className="products main-content-wrapper mb-4">

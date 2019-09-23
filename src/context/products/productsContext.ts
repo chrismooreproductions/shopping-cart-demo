@@ -2,7 +2,7 @@ import React from "react";
 import products from "../../data/products";
 import IProduct from "../../types/IProduct";
 
-interface IProductsContext {
+export interface IProductsContext {
   products: IProduct[];
 }
 

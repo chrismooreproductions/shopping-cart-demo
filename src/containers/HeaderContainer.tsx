@@ -2,7 +2,7 @@ import { faShoppingBasket, faStore } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Pages from "../constants/pages";
-import { CurrencyContext } from "../context/currency/currencyContext";
+import { CurrencyContext, ICurrencyContext } from "../context/currency/currencyContext";
 import "../styles/Header.css";
 
 import ICurrencies from "../constants/currencies";
@@ -15,7 +15,7 @@ interface IHeaderProps {
 export default class Header extends React.Component<IHeaderProps, {}> {
   public render() {
     return (
-      <CurrencyContext.Consumer>{(currency) => (
+      <CurrencyContext.Consumer>{(currency: ICurrencyContext) => (
         <nav className="navbar navbar-light bg-light justify-content-between mb-4">
           <a href="localhost:3000" className="navbar-brand">Chris Moore's Store</a>
             <div className="nav--store-functions">

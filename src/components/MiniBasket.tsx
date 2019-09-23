@@ -4,7 +4,7 @@ import "../styles/MiniBasket.css";
 import IProduct from "../types/IProduct";
 import strToUpper from "../utils/strToUpper";
 
-import { BasketContext } from "../context/basket/basketContext";
+import { BasketContext, IBasketContext } from "../context/basket/basketContext";
 
 export const renderMiniBasket = (products: IProduct[]) => {
   return products.map((product) => {
@@ -22,16 +22,14 @@ export const renderMiniBasket = (products: IProduct[]) => {
 
 const MiniBasket: React.FC<{}> = () => {
   return (
-    <BasketContext.Consumer>
-      {(basket) => (
-        <div className="mini-basket">
-          <ul className="list-group">
-            <li className="list-group-item">Your Basket: {basket.products.length > 0 ? "" : "Empty"}</li>
-            {renderMiniBasket(basket.products)}
-          </ul>
-        </div>
-      )}
-    </BasketContext.Consumer>
+    <BasketContext.Consumer>{(basket: IBasketContext) => (
+      <div className="mini-basket">
+        <ul className="list-group">
+          <li className="list-group-item">Your Basket: {basket.products.length > 0 ? "" : "Empty"}</li>
+          {renderMiniBasket(basket.products)}
+        </ul>
+      </div>
+    )}</BasketContext.Consumer>
   );
 };
 

@@ -13,8 +13,8 @@ interface IBasketProps {
 export default class Basket extends React.Component<IBasketProps> {
   public render() {
     return (
-      <BasketContext.Consumer>{(basket) => (
-        <CurrencyContext.Consumer>{(currency) => {
+      <BasketContext.Consumer>{(basket: IBasketContext) => (
+        <CurrencyContext.Consumer>{(currency: ICurrencyContext) => {
           return (
             <div className="row basket">
               <div className="col-md-12">

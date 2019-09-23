@@ -1,6 +1,6 @@
 import React from "react";
-import { BasketContext } from "../context/basket/basketContext";
-import { CurrencyContext } from "../context/currency/currencyContext";
+import { BasketContext, IBasketContext } from "../context/basket/basketContext";
+import { CurrencyContext, ICurrencyContext } from "../context/currency/currencyContext";
 import "../styles/ProductComponent.css";
 import IProduct from "../types/IProduct";
 import { integerToUnitPrice } from "../utils/financial";
@@ -11,11 +11,11 @@ interface IProductProps {
   product: IProduct;
 }
 
-const Product: React.FC<IProductProps> = (props) => {
+const Product: React.FC<IProductProps> = (props: IProductProps) => {
   const { product } = props;
   return (
-    <CurrencyContext.Consumer>{(currency) => (
-      <BasketContext.Consumer>{(basket) => (
+    <CurrencyContext.Consumer>{(currency: ICurrencyContext) => (
+      <BasketContext.Consumer>{(basket: IBasketContext) => (
         <div className="col-md-6 mb-4">
           <div className="card">
             <div className="product--image-wrapper">
