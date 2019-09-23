@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Readme
 
 This is a shopping page application built on React v16.9 in Typescript v3.6.3 compiling down to Javascript es5.
@@ -24,6 +22,8 @@ higher level tests for rendering of sub totals and totals in the basket there ar
 Obviously this would be essential before committing this code to the master branch.
 
 The design could use some tweeks - I'm open to designers and feedback! :).
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
